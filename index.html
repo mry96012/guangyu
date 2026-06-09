@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光宇方向命理研究所｜東西方命理整合顧問品牌</title>
+<meta name="description" content="結合八字、紫微斗數、塔羅、占星、生命靈數的專業命理顧問品牌。理解自己，看懂處境，找到方向。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold:        #c8a84b;
+    --gold-light:  #e8d9b0;
+    --gold-dim:    #a08838;
+    --steel-blue:  #8eafd4;
+    --navy-deep:   #07090f;
+    --navy-mid:    #0e1628;
+    --navy-surface:#141e35;
+    --text-main:   #e8d9b0;
+    --text-sub:    #b8a880;
+    --text-muted:  #7a8fa8;
+    --serif: 'Noto Serif TC', 'Georgia', serif;
+    --sans:  'Noto Sans TC', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--text-main);
+    font-family: var(--sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 6%;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .nav-logo span {
+    display: block;
+    font-size: 9px;
+    font-family: var(--sans);
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--text-sub);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    font-size: 11px !important;
+    letter-spacing: 0.22em !important;
+    color: var(--gold) !important;
+    border: 1px solid rgba(200,168,75,0.4);
+    padding: 8px 20px;
+    transition: background 0.3s, color 0.3s !important;
+  }
+
+  .nav-cta:hover {
+    background: rgba(200,168,75,0.12) !important;
+    color: var(--gold-light) !important;
+  }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/hero-bg.png');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right,
+        rgba(7,9,15,0.82) 0%,
+        rgba(7,9,15,0.60) 38%,
+        rgba(7,9,15,0.15) 65%,
+        rgba(7,9,15,0.05) 100%),
+      linear-gradient(to bottom,
+        rgba(7,9,15,0.50) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(7,9,15,0.70) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 6%;
+    max-width: 580px;
+    padding-top: 100px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    color: var(--gold-dim);
+    margin-bottom: 22px;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5.5vw, 64px);
+    font-weight: 400;
+    color: var(--gold-light);
+    line-height: 1.3;
+    letter-spacing: 0.16em;
+    margin-bottom: 10px;
+  }
+
+  .hero-title-en {
+    font-family: var(--sans);
+    font-size: clamp(9px, 1.1vw, 12px);
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    color: var(--steel-blue);
+    opacity: 0.65;
+    margin-bottom: 28px;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .hero-divider-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .hero-divider-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .hero-tagline {
+    font-family: var(--serif);
+    font-size: clamp(14px, 1.8vw, 20px);
+    font-weight: 300;
+    color: var(--text-main);
+    line-height: 1.9;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+
+  .hero-tools {
+    font-family: var(--sans);
+    font-size: clamp(9px, 1vw, 11px);
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 2;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--navy-deep);
+    background: var(--gold);
+    border: none;
+    padding: 14px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid rgba(200,168,75,0.45);
+    padding: 14px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.3s, background 0.3s, transform 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(200,168,75,0.8);
+    background: rgba(200,168,75,0.08);
+    transform: translateY(-1px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 6%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    color: var(--text-muted);
+    opacity: 0.55;
+  }
+
+  .hero-scroll-line {
+    width: 32px;
+    height: 1px;
+    background: var(--text-muted);
+    opacity: 0.4;
+  }
+
+  /* ── SERVICES STRIP ── */
+  .services-strip {
+    background: var(--navy-surface);
+    border-top: 1px solid rgba(200,168,75,0.12);
+    border-bottom: 1px solid rgba(200,168,75,0.12);
+    padding: 52px 6%;
+  }
+
+  .strip-eyebrow {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--gold-dim);
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .strip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .strip-item {
+    text-align: center;
+  }
+
+  .strip-icon {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  .strip-name {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-main);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .strip-desc {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+
+  .strip-divider {
+    width: 1px;
+    background: rgba(200,168,75,0.15);
+    align-self: stretch;
+  }
+
+  /* ── BRAND STATEMENT ── */
+  .brand-statement {
+    padding: 90px 6%;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .statement-quote {
+    font-family: var(--serif);
+    font-size: clamp(16px, 2.2vw, 26px);
+    font-weight: 300;
+    color: var(--text-main);
+    line-height: 2.0;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+    opacity: 0.9;
+  }
+
+  .statement-source {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    opacity: 0.7;
+  }
+
+  /* ── BOOKING SECTION ── */
+  .booking-section {
+    background: var(--navy-surface);
+    border-top: 1px solid rgba(200,168,75,0.10);
+    padding: 72px 6%;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  .section-eyebrow {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--gold-dim);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.8vw, 32px);
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.18em;
+  }
+
+  .booking-form {
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .form-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--text-muted);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,168,75,0.22);
+    color: var(--text-main);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: rgba(180,160,120,0.3);
+    font-size: 12px;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: rgba(200,168,75,0.55);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .form-select option {
+    background: var(--navy-mid);
+    color: var(--text-main);
+  }
+
+  .form-textarea { resize: vertical; min-height: 90px; }
+
+  .form-note {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    line-height: 1.9;
+    padding: 14px 18px;
+    border-left: 2px solid rgba(200,168,75,0.3);
+    background: rgba(200,168,75,0.04);
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--gold);
+    border: none;
+    color: var(--navy-deep);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* ── SUCCESS MESSAGE ── */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .form-success-icon {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .form-success-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  .form-success-text {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    line-height: 2;
+    margin-bottom: 28px;
+  }
+
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #06C755;
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    padding: 13px 28px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .btn-line:hover { background: #05b04a; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 6%;
+    border-top: 1px solid rgba(200,168,75,0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--gold-dim);
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+  }
+
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 22px 5%; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    .hero-content { padding: 0 5%; padding-top: 90px; max-width: 100%; }
+
+    .hero-bg { background-position: 70% center; }
+    .hero-bg::after {
+      background:
+        linear-gradient(to bottom,
+          rgba(7,9,15,0.65) 0%,
+          rgba(7,9,15,0.55) 100%),
+        linear-gradient(to right,
+          rgba(7,9,15,0.80) 0%,
+          rgba(7,9,15,0.30) 100%);
+    }
+
+    .form-row { grid-template-columns: 1fr; }
+    .strip-divider { display: none; }
+
+    footer { flex-direction: column; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    光宇方向命理研究所
+    <span>GUANGYU FANGXIANG INSTITUTE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#about">關於研究所</a></li>
+    <li><a href="#booking" class="nav-cta">預 約 諮 詢</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()" aria-label="開啟選單">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">東 西 方 命 理 整 合 ｜ 專 業 顧 問 品 牌</div>
+    <h1 class="hero-title">光宇方向<br>命理研究所</h1>
+    <p class="hero-title-en">GUANGYU FANGXIANG INSTITUTE OF METAPHYSICS</p>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-dot"></div>
+      <div class="hero-divider-line"></div>
+    </div>
+    <p class="hero-tagline">
+      理解自己<br>
+      看懂處境<br>
+      找到方向
+    </p>
+    <p class="hero-tools">
+      八字 · 紫微斗數 · 姓名學 · 塔羅 · 生命靈數 · 西洋占星
+    </p>
+    <div class="hero-cta-row">
+      <a href="#booking" class="btn-primary">預 約 諮 詢</a>
+      <a href="#services" class="btn-secondary">了 解 服 務</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    向下探索
+  </div>
+</section>
+
+<!-- ── SERVICES STRIP ── -->
+<section class="services-strip" id="services">
+  <div class="strip-eyebrow">服 務 項 目 總 覽</div>
+  <div class="strip-grid">
+    <div class="strip-item">
+      <div class="strip-icon">命</div>
+      <div class="strip-name">東方命理</div>
+      <div class="strip-desc">八字 · 紫微斗數<br>姓名學 · 流年大運</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-item">
+      <div class="strip-icon">星</div>
+      <div class="strip-name">西方命理</div>
+      <div class="strip-desc">塔羅占卜 · 生命靈數<br>西洋占星</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-item">
+      <div class="strip-icon">析</div>
+      <div class="strip-name">主題分析</div>
+      <div class="strip-desc">感情 · 事業 · 財運<br>人際 · 家庭 · 健康</div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-item">
+      <div class="strip-icon">整</div>
+      <div class="strip-name">整合深度服務</div>
+      <div class="strip-desc">東西方交叉分析<br>雙主題長版報告</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRAND STATEMENT ── -->
+<section class="brand-statement" id="about">
+  <p class="statement-quote">
+    命理的價值，不在於製造神秘感，<br>
+    而在於協助你看懂自己的結構、課題與節奏。<br>
+    當你能理解自己，就比較能在混亂中找到方向。
+  </p>
+  <div class="statement-source">— 光宇方向命理研究所</div>
+</section>
+
+<!-- ── BOOKING SECTION ── -->
+<section class="booking-section" id="booking">
+  <div class="section-header">
+    <div class="section-eyebrow">預 約 諮 詢</div>
+    <h2 class="section-title">開始理解自己</h2>
+  </div>
+
+  <form class="booking-form" id="bookingForm" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="name">姓名</label>
+        <input class="form-input" type="text" id="name" name="name" placeholder="你的姓名" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="gender">性別</label>
+        <select class="form-select" id="gender" name="gender" required>
+          <option value="" disabled selected>請選擇</option>
+          <option value="male">男</option>
+          <option value="female">女</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="birthdate">出生日期（國曆）</label>
+        <input class="form-input" type="date" id="birthdate" name="birthdate" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="birthtime">出生時間（若知曉）</label>
+        <input class="form-input" type="time" id="birthtime" name="birthtime">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="service">想諮詢的服務</label>
+      <select class="form-select" id="service" name="service" required>
+        <option value="" disabled selected>請選擇</option>
+        <option value="bazi">八字命盤分析</option>
+        <option value="ziwei">紫微斗數分析</option>
+        <option value="bazi-ziwei">八字＋紫微整合分析</option>
+        <option value="tarot">塔羅占卜</option>
+        <option value="numerology">生命靈數分析</option>
+        <option value="astrology">西洋占星分析</option>
+        <option value="name">姓名學分析</option>
+        <option value="love">感情深度分析</option>
+        <option value="synastry">合盤分析</option>
+        <option value="integrated">東西方整合報告</option>
+        <option value="unsure">不確定，想諮詢建議</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="note">想讓我先了解的事（選填）</label>
+      <textarea class="form-textarea" id="note" name="note" placeholder="例如：目前在考慮換工作，或最近感情狀態讓我很困惑…"></textarea>
+    </div>
+
+    <div class="form-note">
+      提交後畫面會引導你加入 LINE 官方帳號完成預約確認。<br>
+      報告交付時間約 1–3 個工作天，依服務項目而定。
+    </div>
+
+    <button type="submit" class="form-submit">送 出 預 約 資 料</button>
+  </form>
+
+  <div class="form-success" id="formSuccess">
+    <div class="form-success-icon">◈</div>
+    <div class="form-success-title">已收到你的預約資料</div>
+    <p class="form-success-text">
+      感謝你的信任。<br>
+      請點擊下方按鈕加入 LINE 官方帳號，<br>
+      完成最後確認與付款安排。
+    </p>
+    <a href="https://line.me/R/ti/p/@你的LINE帳號" target="_blank" class="btn-line">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.365 9.89c.50 0 .907-.41.907-.91s-.406-.91-.907-.91H17.5V7.16h1.865c.5 0 .907-.41.907-.91s-.406-.91-.907-.91H16.59a.91.91 0 0 0-.907.91v4.55c0 .5.406.91.907.91h2.775zm-8.965.91c.5 0 .907-.41.907-.91V7.16c0-.5-.407-.91-.907-.91s-.907.41-.907.91v2.73l-1.958-3.09a.904.904 0 0 0-.772-.46.908.908 0 0 0-.907.91v4.55c0 .5.406.91.907.91s.907-.41.907-.91V9.07l1.958 3.09c.168.265.456.44.772.44zm-4.9 0c.5 0 .907-.41.907-.91V7.16c0-.5-.407-.91-.907-.91s-.907.41-.907.91v4.55c0 .5.406.91.907.91zm14.1-7.8C24 3 24 3 21.818 1.18A12.482 12.482 0 0 0 12 0C5.373 0 0 4.925 0 11c0 3.674 1.893 6.943 4.856 9.066L3.75 23.25A.75.75 0 0 0 4.5 24l4.09-2.045A13.3 13.3 0 0 0 12 22.5c6.627 0 12-4.925 12-11 0-2.968-1.235-5.66-3.4-7.5z"/>
+      </svg>
+      加入 LINE 完成預約
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">光宇方向命理研究所</div>
+  <div class="footer-copy">© 2026 光宇方向命理研究所．保留所有權利</div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '72px';
+    links.style.right = '5%';
+    links.style.background = 'rgba(14,22,40,0.97)';
+    links.style.padding = '20px 28px';
+    links.style.gap = '18px';
+    links.style.border = '1px solid rgba(200,168,75,0.18)';
+  }
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('bookingForm');
+  const success = document.getElementById('formSuccess');
+
+  const data = {
+    name:      document.getElementById('name').value,
+    gender:    document.getElementById('gender').value,
+    birthdate: document.getElementById('birthdate').value,
+    birthtime: document.getElementById('birthtime').value,
+    service:   document.getElementById('service').value,
+    note:      document.getElementById('note').value,
+    timestamp: new Date().toISOString()
+  };
+
+  console.log('預約資料：', data);
+
+  form.style.display = 'none';
+  success.style.display = 'block';
+  success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
+</body>
+</html>
