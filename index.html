@@ -60,16 +60,31 @@ nav.scrolled {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  line-height: 1.55;
+}
+
+.nav-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
   font-family: var(--serif);
   font-size: 14px;
   font-weight: 500;
   color: var(--gold-light);
   letter-spacing: 0.2em;
-  text-decoration: none;
   line-height: 1.55;
 }
 
-.nav-logo span {
+.nav-logo-text span {
   display: block;
   font-size: 8.5px;
   font-family: var(--sans);
@@ -317,6 +332,18 @@ nav.scrolled {
   height: 1px;
   background: var(--text-muted);
   opacity: 0.5;
+}
+
+.hero-logo-mark {
+  position: absolute;
+  bottom: 32px;
+  right: 5%;
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  opacity: 0.18;
 }
 
 /* ── SERVICES ── */
@@ -709,6 +736,20 @@ footer {
   gap: 14px;
 }
 
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  opacity: 0.7;
+}
+
 .footer-logo {
   font-family: var(--serif);
   font-size: 13px;
@@ -753,6 +794,7 @@ footer {
   .form-row { grid-template-columns: 1fr; gap: 16px; }
 
   footer { flex-direction: column; text-align: center; gap: 10px; }
+  .footer-brand { justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -765,8 +807,11 @@ footer {
 <!-- NAV -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">
-    光宇方向命理研究所
-    <span>GUANGYU FANGXIANG INSTITUTE</span>
+    <img src="logo.png" alt="光宇方向命理研究所" class="nav-logo-img">
+    <div class="nav-logo-text">
+      光宇方向命理研究所
+      <span>GUANGYU FANGXIANG INSTITUTE</span>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="#services">服務項目</a></li>
@@ -805,6 +850,7 @@ footer {
     <div class="hero-scroll-line"></div>
     向下探索
   </div>
+  <img src="logo.png" alt="" class="hero-logo-mark" aria-hidden="true">
 </section>
 
 <!-- SERVICES -->
@@ -978,7 +1024,10 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">光宇方向命理研究所</div>
+  <div class="footer-brand">
+    <img src="logo.png" alt="光宇方向命理研究所" class="footer-logo-img">
+    <div class="footer-logo">光宇方向命理研究所</div>
+  </div>
   <div class="footer-copy">© 2026 光宇方向命理研究所 · 保留所有權利</div>
 </footer>
 
