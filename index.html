@@ -316,11 +316,11 @@
 
   .strip-eyebrow {
     font-family: var(--sans);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 0.35em;
     color: var(--gold-dim);
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
 
   .strip-grid {
@@ -333,7 +333,7 @@
 
   .strip-item {
     text-align: center;
-    padding: 40px 36px;
+    padding: 44px 36px;
   }
 
   .strip-item--tl { border-right: 1px solid rgba(200,168,75,0.15); border-bottom: 1px solid rgba(200,168,75,0.15); }
@@ -345,36 +345,38 @@
   .strip-divider { display: none; }
 
   .strip-icon {
-    font-family: var(--serif);
-    font-size: 22px;
-    color: var(--gold);
-    opacity: 0.7;
-    margin-bottom: 14px;
-    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    opacity: 0.75;
+  }
+
+  .strip-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .strip-name {
     font-family: var(--serif);
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 400;
     color: var(--text-main);
     letter-spacing: 0.15em;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .strip-desc {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 300;
     color: var(--text-muted);
     letter-spacing: 0.1em;
-    line-height: 1.8;
-  }
-
-  .strip-divider {
-    width: 1px;
-    background: rgba(200,168,75,0.15);
-    align-self: stretch;
+    line-height: 2.0;
   }
 
   /* ── BRAND STATEMENT ── */
@@ -420,7 +422,7 @@
 
   .section-eyebrow {
     font-family: var(--sans);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 0.35em;
     color: var(--gold-dim);
     margin-bottom: 16px;
@@ -428,7 +430,7 @@
 
   .section-title {
     font-family: var(--serif);
-    font-size: clamp(20px, 2.8vw, 32px);
+    font-size: clamp(26px, 3.2vw, 38px);
     font-weight: 400;
     color: var(--gold-light);
     letter-spacing: 0.18em;
@@ -697,22 +699,67 @@
   <div class="strip-eyebrow">服 務 項 目 總 覽</div>
   <div class="strip-grid">
     <div class="strip-item strip-item--tl">
-      <div class="strip-icon">命</div>
+      <div class="strip-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <circle cx="18" cy="18" r="14"/>
+          <circle cx="18" cy="18" r="7"/>
+          <line x1="18" y1="4" x2="18" y2="11"/>
+          <line x1="18" y1="25" x2="18" y2="32"/>
+          <line x1="4" y1="18" x2="11" y2="18"/>
+          <line x1="25" y1="18" x2="32" y2="18"/>
+          <line x1="8.5" y1="8.5" x2="13.5" y2="13.5"/>
+          <line x1="22.5" y1="22.5" x2="27.5" y2="27.5"/>
+          <line x1="27.5" y1="8.5" x2="22.5" y2="13.5"/>
+          <line x1="13.5" y1="22.5" x2="8.5" y2="27.5"/>
+        </svg>
+      </div>
       <div class="strip-name">東方命理</div>
       <div class="strip-desc">八字 · 紫微斗數<br>姓名學 · 流年大運</div>
     </div>
     <div class="strip-item strip-item--tr">
-      <div class="strip-icon">星</div>
+      <div class="strip-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <circle cx="18" cy="18" r="14"/>
+          <circle cx="18" cy="9" r="2" fill="currentColor" stroke="none" style="fill:var(--gold);opacity:0.6"/>
+          <circle cx="25" cy="13" r="1.5" fill="currentColor" stroke="none" style="fill:var(--gold);opacity:0.6"/>
+          <circle cx="27" cy="21" r="1.5" fill="currentColor" stroke="none" style="fill:var(--gold);opacity:0.6"/>
+          <circle cx="11" cy="13" r="1.5" fill="currentColor" stroke="none" style="fill:var(--gold);opacity:0.6"/>
+          <circle cx="9" cy="21" r="1.5" fill="currentColor" stroke="none" style="fill:var(--gold);opacity:0.6"/>
+          <circle cx="18" cy="26" r="1.5" fill="currentColor" stroke="none" style="fill:var(--gold);opacity:0.6"/>
+          <path d="M18 9 L25 13 L27 21 L18 26 L9 21 L11 13 Z"/>
+        </svg>
+      </div>
       <div class="strip-name">西方命理</div>
       <div class="strip-desc">塔羅占卜 · 生命靈數<br>西洋占星</div>
     </div>
     <div class="strip-item strip-item--bl">
-      <div class="strip-icon">析</div>
+      <div class="strip-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect x="5" y="8" width="26" height="20" rx="2"/>
+          <line x1="5" y1="14" x2="31" y2="14"/>
+          <line x1="13" y1="8" x2="13" y2="14"/>
+          <line x1="23" y1="8" x2="23" y2="14"/>
+          <line x1="10" y1="20" x2="17" y2="20"/>
+          <line x1="10" y1="24" x2="20" y2="24"/>
+        </svg>
+      </div>
       <div class="strip-name">主題分析</div>
       <div class="strip-desc">感情 · 事業 · 財運<br>人際 · 家庭 · 健康</div>
     </div>
     <div class="strip-item strip-item--br">
-      <div class="strip-icon">整</div>
+      <div class="strip-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <circle cx="18" cy="18" r="14"/>
+          <circle cx="18" cy="18" r="8"/>
+          <circle cx="18" cy="18" r="2.5" stroke-width="1.5"/>
+          <line x1="18" y1="4" x2="18" y2="10"/>
+          <line x1="18" y1="26" x2="18" y2="32"/>
+          <line x1="4" y1="18" x2="10" y2="18"/>
+          <line x1="26" y1="18" x2="32" y2="18"/>
+          <line x1="18" y1="15.5" x2="18" y2="10" stroke-width="2"/>
+          <line x1="18" y1="18" x2="23" y2="18" stroke-width="1.5"/>
+        </svg>
+      </div>
       <div class="strip-name">整合深度服務</div>
       <div class="strip-desc">東西方交叉分析<br>雙主題長版報告</div>
     </div>
@@ -831,6 +878,12 @@ function toggleMenu() {
     links.style.padding = '20px 28px';
     links.style.gap = '18px';
     links.style.border = '1px solid rgba(200,168,75,0.18)';
+    links.style.minWidth = '160px';
+    links.querySelectorAll('a').forEach(a => {
+      a.style.letterSpacing = '0.08em';
+      a.style.fontSize = '15px';
+      a.style.whiteSpace = 'nowrap';
+    });
   }
 }
 
