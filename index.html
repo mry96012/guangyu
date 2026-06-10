@@ -46,30 +46,30 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 6%;
-  background: rgba(7,9,15,0.85);
-  border-bottom: 1px solid rgba(200,168,75,0.14);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background 0.4s;
+  padding: 16px 6%;
+  background: rgba(7,9,15,0.45);
+  border-bottom: 1px solid rgba(200,168,75,0.1);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  transition: background 0.4s, border-color 0.4s;
 }
 
 nav.scrolled {
-  background: rgba(7,9,15,0.96);
-  border-bottom: 1px solid rgba(200,168,75,0.2);
+  background: rgba(7,9,15,0.82);
+  border-bottom: 1px solid rgba(200,168,75,0.18);
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .nav-logo-img {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   mix-blend-mode: lighten;
   flex-shrink: 0;
@@ -77,21 +77,21 @@ nav.scrolled {
 
 .nav-logo-text {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--gold-light);
-  letter-spacing: 0.2em;
-  line-height: 1.55;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
 }
 
 .nav-logo-text span {
   display: block;
-  font-size: 8.5px;
+  font-size: 9px;
   font-family: var(--sans);
   font-weight: 300;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.35em;
   color: var(--gold-dim);
-  margin-top: 2px;
+  margin-top: 3px;
   opacity: 0.85;
 }
 
@@ -143,6 +143,27 @@ nav.scrolled {
   background: var(--gold);
   transition: opacity 0.2s;
 }
+
+/* ── HERO ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-eyebrow  { animation: fadeUp 0.9s ease both; animation-delay: 0.2s; opacity: 0; }
+.hero-title    { animation: fadeUp 1.1s ease both; animation-delay: 0.5s; opacity: 0; }
+.hero-title-en { animation: fadeUp 0.9s ease both; animation-delay: 0.9s; opacity: 0; }
+.hero-divider  { animation: fadeIn 0.8s ease both; animation-delay: 1.1s; opacity: 0; }
+.hero-tagline  { animation: fadeUp 1.0s ease both; animation-delay: 1.3s; opacity: 0; }
+.hero-positioning { animation: fadeUp 0.9s ease both; animation-delay: 1.6s; opacity: 0; }
+.hero-tools    { animation: fadeUp 0.8s ease both; animation-delay: 1.8s; opacity: 0; }
+.hero-cta-row  { animation: fadeUp 0.9s ease both; animation-delay: 2.0s; opacity: 0; }
+.hero-free-note{ animation: fadeIn 0.8s ease both; animation-delay: 2.3s; opacity: 0; }
 
 /* ── HERO ── */
 .hero {
@@ -796,67 +817,78 @@ footer {
   color: var(--text-muted);
   text-align: center;
   letter-spacing: 0.12em;
-  margin-bottom: 48px;
-  opacity: 0.8;
+  margin-bottom: 52px;
+  opacity: 0.75;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .svc-card {
-  background: var(--navy-card);
-  border: 1px solid rgba(200,168,75,0.15);
-  padding: 36px 28px 32px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.25) 100%);
+  border: 1px solid rgba(200,168,75,0.16);
+  padding: 40px 24px 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s, background 0.35s;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(4px);
 }
 
 .svc-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, transparent, rgba(200,168,75,0.4), transparent);
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(200,168,75,0.5), transparent);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.35s;
+}
+
+.svc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(200,168,75,0.03) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .svc-card:hover {
-  border-color: rgba(200,168,75,0.35);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  border-color: rgba(200,168,75,0.40);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,168,75,0.08);
+  background: linear-gradient(160deg, rgba(200,168,75,0.07) 0%, rgba(0,0,0,0.3) 100%);
 }
 
 .svc-card:hover::before { opacity: 1; }
 
 .svc-card--highlight {
-  border-color: rgba(200,168,75,0.3);
-  background: linear-gradient(160deg, rgba(200,168,75,0.06) 0%, var(--navy-card) 60%);
+  border-color: rgba(200,168,75,0.28);
+  background: linear-gradient(160deg, rgba(200,168,75,0.08) 0%, rgba(0,0,0,0.3) 100%);
 }
 
-.svc-card--highlight::before { opacity: 0.6; }
+.svc-card--highlight::before { opacity: 0.7; }
 
 .svc-card-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 18px;
-  opacity: 0.7;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+  opacity: 0.65;
   transition: opacity 0.3s, filter 0.3s;
 }
 
 .svc-card:hover .svc-card-icon {
   opacity: 1;
-  filter: drop-shadow(0 0 6px rgba(200,168,75,0.3));
+  filter: drop-shadow(0 0 8px rgba(200,168,75,0.4));
 }
 
 .svc-card-icon svg { width: 100%; height: 100%; }
@@ -864,19 +896,20 @@ footer {
 .svc-card-tag {
   font-family: var(--sans);
   font-size: 9px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.32em;
   color: var(--gold-dim);
-  margin-bottom: 10px;
-  opacity: 0.75;
+  margin-bottom: 12px;
+  opacity: 0.7;
 }
 
 .svc-card-name {
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--text-main);
   letter-spacing: 0.15em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  white-space: nowrap;
 }
 
 .svc-card-tools {
@@ -886,7 +919,8 @@ footer {
   color: var(--text-muted);
   letter-spacing: 0.08em;
   line-height: 1.8;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  white-space: nowrap;
 }
 
 .svc-card-fit {
@@ -894,33 +928,27 @@ footer {
   font-size: 11.5px;
   font-weight: 300;
   color: var(--text-sub);
-  letter-spacing: 0.06em;
-  line-height: 1.9;
+  letter-spacing: 0.05em;
+  line-height: 2.0;
   flex: 1;
 }
 
 .svc-card-divider {
-  width: 32px;
+  width: 28px;
   height: 1px;
-  background: rgba(200,168,75,0.3);
-  margin: 18px auto;
+  background: linear-gradient(to right, transparent, rgba(200,168,75,0.5), transparent);
+  margin: 20px auto;
 }
 
 .svc-card-price {
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 20px;
   color: var(--gold);
-  letter-spacing: 0.08em;
-  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 20px rgba(200,168,75,0.2);
 }
 
-.svc-card-free {
-  font-family: var(--sans);
-  font-size: 10px;
-  color: var(--gold-dim);
-  letter-spacing: 0.12em;
-  opacity: 0.7;
-}
+.svc-card-free { display: none; }
 
 /* ── WHY US ── */
 .why-section {
@@ -1473,11 +1501,11 @@ footer {
 
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label" for="birthdate">出生日期（國曆）</label>
+        <label class="form-label" for="birthdate">出生日期（YYYY/MM/DD）</label>
         <input class="form-input" type="date" id="birthdate" name="birthdate" required>
       </div>
       <div class="form-group">
-        <label class="form-label" for="birthtime">出生時間（若知曉）</label>
+        <label class="form-label" for="birthtime">出生時間（HH:mm）</label>
         <input class="form-input" type="time" id="birthtime" name="birthtime">
       </div>
     </div>
@@ -1501,13 +1529,13 @@ footer {
     </div>
 
     <div class="form-group">
-      <label class="form-label" for="note">想讓我先了解的事（選填）</label>
+      <label class="form-label" for="note">想讓我先了解的事 / 近期發生的事（選填）</label>
       <textarea class="form-textarea" id="note" name="note" placeholder="例如：目前在考慮換工作，或最近感情狀態讓我很困惑…"></textarea>
     </div>
 
     <div class="form-note">
-      提交後畫面會引導你加入 LINE 官方帳號完成預約確認。<br>
-      報告交付時間約 1–3 個工作天，依服務項目而定。
+      提交後畫面會引導您加入 LINE 官方帳號完成預約確認。<br>
+      報告交付時間約 3–7 個工作天，依服務項目而定。
     </div>
 
     <button type="submit" class="form-submit">送出預約資料</button>
@@ -1515,11 +1543,11 @@ footer {
 
   <div class="form-success" id="formSuccess">
     <div class="form-success-icon">◈</div>
-    <div class="form-success-title">已收到你的預約資料</div>
+    <div class="form-success-title">系統已收到您的預約資料</div>
     <p class="form-success-text">
-      感謝你的信任。<br>
+      感謝您的信任。<br>
       請點擊下方按鈕加入 LINE 官方帳號，<br>
-      完成最後確認與付款安排。
+      完成最後確認與後續安排。
     </p>
     <a href="https://line.me/R/ti/p/@enlite731" target="_blank" class="btn-line">
       <svg width="20" height="20" viewBox="0 0 48 48" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
