@@ -325,41 +325,24 @@
 
   .strip-grid {
     display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    grid-template-rows: auto auto;
-    gap: 0;
-    max-width: 900px;
+    grid-template-columns: 1fr 1fr;
+    max-width: 860px;
     margin: 0 auto;
-  }
-
-  .strip-row {
-    display: contents;
+    border: 1px solid rgba(200,168,75,0.15);
   }
 
   .strip-item {
     text-align: center;
-    padding: 36px 40px;
+    padding: 40px 36px;
   }
 
-  .strip-item:nth-child(1),
-  .strip-item:nth-child(3) {
-    border-right: 1px solid rgba(200,168,75,0.15);
-  }
+  .strip-item--tl { border-right: 1px solid rgba(200,168,75,0.15); border-bottom: 1px solid rgba(200,168,75,0.15); }
+  .strip-item--tr { border-bottom: 1px solid rgba(200,168,75,0.15); }
+  .strip-item--bl { border-right: 1px solid rgba(200,168,75,0.15); }
+  .strip-item--br { }
 
-  .strip-item:nth-child(1),
-  .strip-item:nth-child(3) {
-    border-bottom: 1px solid rgba(200,168,75,0.15);
-  }
-
-  .strip-item:nth-child(2),
-  .strip-item:nth-child(4) {
-    border-bottom: 1px solid rgba(200,168,75,0.15);
-  }
-
-  .strip-sep-v {
-    background: rgba(200,168,75,0.15);
-    grid-row: span 2;
-  }
+  .strip-sep-v { display: none; }
+  .strip-divider { display: none; }
 
   .strip-icon {
     font-family: var(--serif);
@@ -404,13 +387,15 @@
 
   .statement-quote {
     font-family: var(--serif);
-    font-size: clamp(16px, 2.2vw, 26px);
+    font-size: clamp(15px, 2vw, 24px);
     font-weight: 300;
     color: var(--text-main);
-    line-height: 2.0;
+    line-height: 2.2;
     letter-spacing: 0.1em;
     margin-bottom: 32px;
     opacity: 0.9;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .statement-source {
@@ -640,14 +625,13 @@
 
     .strip-grid {
       grid-template-columns: 1fr;
+      border: none;
     }
-    .strip-sep-v { display: none; }
-    .strip-item { border-right: none !important; padding: 28px 20px; }
-    .strip-item:nth-child(1),
-    .strip-item:nth-child(2),
-    .strip-item:nth-child(3) {
-      border-bottom: 1px solid rgba(200,168,75,0.15);
-    }
+    .strip-item { border-right: none !important; padding: 32px 20px; }
+    .strip-item--tl,
+    .strip-item--tr,
+    .strip-item--bl { border-bottom: 1px solid rgba(200,168,75,0.15) !important; }
+    .strip-item--br { border-bottom: none !important; }
 
     .form-row { grid-template-columns: 1fr; }
 
@@ -712,23 +696,22 @@
 <section class="services-strip" id="services">
   <div class="strip-eyebrow">服 務 項 目 總 覽</div>
   <div class="strip-grid">
-    <div class="strip-item">
+    <div class="strip-item strip-item--tl">
       <div class="strip-icon">命</div>
       <div class="strip-name">東方命理</div>
       <div class="strip-desc">八字 · 紫微斗數<br>姓名學 · 流年大運</div>
     </div>
-    <div class="strip-sep-v"></div>
-    <div class="strip-item">
+    <div class="strip-item strip-item--tr">
       <div class="strip-icon">星</div>
       <div class="strip-name">西方命理</div>
       <div class="strip-desc">塔羅占卜 · 生命靈數<br>西洋占星</div>
     </div>
-    <div class="strip-item" style="border-bottom:none;">
+    <div class="strip-item strip-item--bl">
       <div class="strip-icon">析</div>
       <div class="strip-name">主題分析</div>
       <div class="strip-desc">感情 · 事業 · 財運<br>人際 · 家庭 · 健康</div>
     </div>
-    <div class="strip-item" style="border-bottom:none;">
+    <div class="strip-item strip-item--br">
       <div class="strip-icon">整</div>
       <div class="strip-name">整合深度服務</div>
       <div class="strip-desc">東西方交叉分析<br>雙主題長版報告</div>
@@ -739,9 +722,7 @@
 <!-- ── BRAND STATEMENT ── -->
 <section class="brand-statement" id="about">
   <p class="statement-quote">
-    命理的價值，不在於製造神秘感，<br>
-    而在於協助你看懂自己的結構、課題與節奏。<br>
-    當你能理解自己，就比較能在混亂中找到方向。
+    命理的價值，不在於製造神秘感，而在於協助你看懂自己的結構、課題與節奏。當你能理解自己，就比較能在混亂中找到方向。
   </p>
   <div class="statement-source">— 光宇方向命理研究所</div>
 </section>
