@@ -766,7 +766,389 @@ footer {
   opacity: 0.45;
 }
 
-/* ── MOBILE ── */
+/* ── HERO POSITIONING TEXT ── */
+.hero-positioning {
+  font-family: var(--sans);
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 300;
+  color: var(--text-sub);
+  letter-spacing: 0.08em;
+  line-height: 2.0;
+  margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+.hero-free-note {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--gold-dim);
+  letter-spacing: 0.15em;
+  margin-top: 16px;
+  opacity: 0.7;
+}
+
+/* ── SERVICE CARDS ── */
+.strip-title {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.12em;
+  margin-bottom: 48px;
+  opacity: 0.8;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.svc-card {
+  background: var(--navy-card);
+  border: 1px solid rgba(200,168,75,0.15);
+  padding: 36px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(200,168,75,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.svc-card:hover {
+  border-color: rgba(200,168,75,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.svc-card:hover::before { opacity: 1; }
+
+.svc-card--highlight {
+  border-color: rgba(200,168,75,0.3);
+  background: linear-gradient(160deg, rgba(200,168,75,0.06) 0%, var(--navy-card) 60%);
+}
+
+.svc-card--highlight::before { opacity: 0.6; }
+
+.svc-card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  opacity: 0.7;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.svc-card:hover .svc-card-icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(200,168,75,0.3));
+}
+
+.svc-card-icon svg { width: 100%; height: 100%; }
+
+.svc-card-tag {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--gold-dim);
+  margin-bottom: 10px;
+  opacity: 0.75;
+}
+
+.svc-card-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-main);
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+
+.svc-card-tools {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.svc-card-fit {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 300;
+  color: var(--text-sub);
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+  flex: 1;
+}
+
+.svc-card-divider {
+  width: 32px;
+  height: 1px;
+  background: rgba(200,168,75,0.3);
+  margin: 18px auto;
+}
+
+.svc-card-price {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.svc-card-free {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: var(--gold-dim);
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+/* ── WHY US ── */
+.why-section {
+  background: var(--navy-deep);
+  padding: 88px 6%;
+  border-top: 1px solid rgba(200,168,75,0.08);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.why-item {
+  text-align: center;
+}
+
+.why-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+  opacity: 0.65;
+}
+
+.why-icon svg { width: 100%; height: 100%; }
+
+.why-title {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-main);
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+}
+
+.why-desc {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  line-height: 2.0;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonial-section {
+  background: var(--navy-surface);
+  padding: 88px 6%;
+  border-top: 1px solid rgba(200,168,75,0.08);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(200,168,75,0.12);
+  padding: 32px 28px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '❝';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 28px;
+  color: var(--gold);
+  opacity: 0.15;
+  font-family: var(--serif);
+  line-height: 1;
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+
+.testimonial-text {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--text-main);
+  line-height: 2.0;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+  opacity: 0.88;
+}
+
+.testimonial-author {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: var(--gold-dim);
+  letter-spacing: 0.2em;
+  opacity: 0.65;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(135deg, var(--navy-mid) 0%, #0a1020 50%, var(--navy-mid) 100%);
+  border-top: 1px solid rgba(200,168,75,0.12);
+  padding: 88px 6%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(200,168,75,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--gold-dim);
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.final-cta-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.final-cta-sub {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+  line-height: 2;
+}
+
+.final-cta-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── BOOKING STEPS ── */
+.booking-steps {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 680px;
+  margin: 0 auto 52px;
+}
+
+.booking-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.booking-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: -20%;
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(200,168,75,0.4), rgba(200,168,75,0.1));
+}
+
+.booking-step-num {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(200,168,75,0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--gold);
+  margin: 0 auto 14px;
+}
+
+.booking-step-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-sub);
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+}
+
+/* ── MOBILE NEW SECTIONS ── */
+@media (max-width: 900px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .testimonial-grid { grid-template-columns: 1fr; max-width: 500px; }
+}
+
+@media (max-width: 600px) {
+  .card-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .why-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+  .booking-steps { flex-direction: column; align-items: center; gap: 28px; }
+  .booking-step:not(:last-child)::after { display: none; }
+}
 @media (max-width: 768px) {
   nav { padding: 18px 5%; }
   .nav-links { display: none; }
@@ -840,11 +1222,13 @@ footer {
       看懂處境<br>
       找到方向
     </p>
+    <p class="hero-positioning">結合八字、紫微斗數、塔羅、生命靈數與占星，<br>協助您用更清楚的方式理解自己、整理狀態，找到下一步方向。</p>
     <p class="hero-tools">八字 · 紫微斗數 · 姓名學 · 塔羅 · 生命靈數 · 西洋占星</p>
     <div class="hero-cta-row">
       <a href="#booking" class="btn-primary">預約諮詢</a>
       <a href="#services" class="btn-secondary">了解服務</a>
     </div>
+    <p class="hero-free-note">✦ 八字、紫微斗數、塔羅均提供免費體驗版</p>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
@@ -856,10 +1240,11 @@ footer {
 <!-- SERVICES -->
 <section class="services-strip" id="services">
   <div class="strip-eyebrow">服 務 項 目 總 覽</div>
-  <div class="strip-grid">
-    <div class="strip-item strip-item--tl">
-      <div class="strip-icon">
-        <svg viewBox="0 0 36 36" aria-hidden="true">
+  <h2 class="strip-title">多元命理工具整合，滿足不同需求</h2>
+  <div class="card-grid">
+    <div class="svc-card">
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true" stroke="var(--gold)" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="18" cy="18" r="14"/>
           <circle cx="18" cy="18" r="7"/>
           <line x1="18" y1="4" x2="18" y2="11"/>
@@ -872,12 +1257,17 @@ footer {
           <line x1="13" y1="23" x2="8.5" y2="27.5"/>
         </svg>
       </div>
-      <div class="strip-name">東方命理</div>
-      <div class="strip-desc">八字 · 紫微斗數 · 姓名學 · 流年大運</div>
+      <div class="svc-card-tag">東方命理</div>
+      <h3 class="svc-card-name">東方命理分析</h3>
+      <p class="svc-card-tools">八字 · 紫微斗數 · 姓名學</p>
+      <p class="svc-card-fit">適合想理解人生結構、個性、事業與流年節奏的人</p>
+      <div class="svc-card-divider"></div>
+      <div class="svc-card-price">NT$600 起</div>
+      <div class="svc-card-free">✦ 提供免費體驗版</div>
     </div>
-    <div class="strip-item strip-item--tr">
-      <div class="strip-icon">
-        <svg viewBox="0 0 36 36" aria-hidden="true">
+    <div class="svc-card">
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true" stroke="var(--gold)" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="18" cy="18" r="14"/>
           <path d="M18 9 L25 13.5 L25 22.5 L18 27 L11 22.5 L11 13.5 Z"/>
           <circle cx="18" cy="9" r="1.8" fill="var(--gold)" stroke="none"/>
@@ -888,12 +1278,17 @@ footer {
           <circle cx="11" cy="13.5" r="1.5" fill="var(--gold)" stroke="none"/>
         </svg>
       </div>
-      <div class="strip-name">西方命理</div>
-      <div class="strip-desc">塔羅占卜 · 生命靈數 · 西洋占星</div>
+      <div class="svc-card-tag">西方命理</div>
+      <h3 class="svc-card-name">西方命理占卜</h3>
+      <p class="svc-card-tools">塔羅占卜 · 生命靈數 · 西洋占星</p>
+      <p class="svc-card-fit">適合想聚焦當下問題、情緒狀態與短期選擇的人</p>
+      <div class="svc-card-divider"></div>
+      <div class="svc-card-price">NT$350 起</div>
+      <div class="svc-card-free">✦ 塔羅提供免費體驗版</div>
     </div>
-    <div class="strip-item strip-item--bl">
-      <div class="strip-icon">
-        <svg viewBox="0 0 36 36" aria-hidden="true">
+    <div class="svc-card">
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true" stroke="var(--gold)" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
           <rect x="6" y="9" width="24" height="18" rx="1.5"/>
           <line x1="6" y1="15" x2="30" y2="15"/>
           <line x1="13" y1="9" x2="13" y2="15"/>
@@ -902,12 +1297,17 @@ footer {
           <line x1="11" y1="24.5" x2="22" y2="24.5"/>
         </svg>
       </div>
-      <div class="strip-name">主題分析</div>
-      <div class="strip-desc">感情 · 事業 · 財運 · 人際 · 家庭 · 健康</div>
+      <div class="svc-card-tag">主題分析</div>
+      <h3 class="svc-card-name">主題式分析</h3>
+      <p class="svc-card-tools">感情 · 事業 · 財運 · 人際 · 家庭</p>
+      <p class="svc-card-fit">適合針對感情、事業、財運、人際做深入整理的人</p>
+      <div class="svc-card-divider"></div>
+      <div class="svc-card-price">NT$1,800 起</div>
+      <div class="svc-card-free" style="opacity:0">—</div>
     </div>
-    <div class="strip-item strip-item--br">
-      <div class="strip-icon">
-        <svg viewBox="0 0 36 36" aria-hidden="true">
+    <div class="svc-card svc-card--highlight">
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 36 36" aria-hidden="true" stroke="var(--gold)" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="18" cy="18" r="14"/>
           <circle cx="18" cy="18" r="8"/>
           <circle cx="18" cy="18" r="2.8"/>
@@ -919,8 +1319,101 @@ footer {
           <line x1="18" y1="18" x2="22.5" y2="18" stroke-width="1.6"/>
         </svg>
       </div>
-      <div class="strip-name">整合深度服務</div>
-      <div class="strip-desc">東西方交叉分析 · 雙主題長版報告</div>
+      <div class="svc-card-tag">整合型報告</div>
+      <h3 class="svc-card-name">整合型報告</h3>
+      <p class="svc-card-tools">東西方系統交叉解析</p>
+      <p class="svc-card-fit">適合需要多系統交叉分析、希望獲得完整書面報告的人</p>
+      <div class="svc-card-divider"></div>
+      <div class="svc-card-price">NT$2,500 起</div>
+      <div class="svc-card-free" style="opacity:0">—</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 48px;">
+    <a href="#booking" class="btn-primary">查看所有服務項目</a>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="section-header">
+    <div class="section-eyebrow">為 什 麼 選 擇 光 宇 方 向</div>
+    <h2 class="section-title">專業顧問式陪伴</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="20" cy="20" r="16"/>
+          <circle cx="20" cy="20" r="8"/>
+          <line x1="20" y1="4" x2="20" y2="12"/>
+          <line x1="20" y1="28" x2="20" y2="36"/>
+          <line x1="4" y1="20" x2="12" y2="20"/>
+          <line x1="28" y1="20" x2="36" y2="20"/>
+        </svg>
+      </div>
+      <h3 class="why-title">東西方命理整合</h3>
+      <p class="why-desc">結合東西方命理工具，從不同角度觀察，提供更立體完整的分析視角。</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 32 L20 10 L32 32 Z"/>
+          <line x1="13" y1="24" x2="27" y2="24"/>
+          <circle cx="20" cy="18" r="2" fill="var(--gold)" stroke="none"/>
+        </svg>
+      </div>
+      <h3 class="why-title">清楚有結構的表達</h3>
+      <p class="why-desc">把複雜命理術語轉譯成一般人聽得懂的語言，分析有條理、有層次、可行動。</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="8" y="10" width="24" height="20" rx="2"/>
+          <line x1="8" y1="17" x2="32" y2="17"/>
+          <line x1="14" y1="10" x2="14" y2="17"/>
+          <line x1="26" y1="10" x2="26" y2="17"/>
+          <line x1="13" y1="23" x2="22" y2="23"/>
+          <line x1="13" y1="27" x2="19" y2="27"/>
+        </svg>
+      </div>
+      <h3 class="why-title">書面報告完整交付</h3>
+      <p class="why-desc">所有分析以書面報告形式交付，可反覆閱讀、隨時參考，不只是口頭說說。</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 8 C12 8 6 14 6 20 C6 26 12 32 20 32 C28 32 34 26 34 20"/>
+          <path d="M26 8 L34 8 L34 16"/>
+          <line x1="20" y1="20" x2="34" y2="8"/>
+        </svg>
+      </div>
+      <h3 class="why-title">溫和專業顧問陪伴</h3>
+      <p class="why-desc">不恐嚇、不宿命化，用理性溫和的方式協助你整理狀態、找到屬於自己的方向。</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+  <div class="section-header">
+    <div class="section-eyebrow">客 戶 真 實 回 饋</div>
+    <h2 class="section-title">他們這樣說</h2>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">「老師的分析非常準確，讓我更清楚自己的特質，也找到適合自己的發展方向。」</p>
+      <div class="testimonial-author">— 小美 · 事業分析</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">「感情分析讓我看清了關係中的盲點，現在的關係更健康穩定了。」</p>
+      <div class="testimonial-author">— 阿哲 · 感情分析</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">「整合報告很完整，從多個角度分析我的狀況，建議都很實用！」</p>
+      <div class="testimonial-author">— 小雨 · 整合報告</div>
     </div>
   </div>
 </section>
@@ -944,6 +1437,21 @@ footer {
   <div class="section-header">
     <div class="section-eyebrow">預 約 諮 詢</div>
     <h2 class="section-title">開始理解自己</h2>
+  </div>
+
+  <div class="booking-steps">
+    <div class="booking-step">
+      <div class="booking-step-num">1</div>
+      <div class="booking-step-label">選擇服務項目<br>填寫基本資料</div>
+    </div>
+    <div class="booking-step">
+      <div class="booking-step-num">2</div>
+      <div class="booking-step-label">填寫出生資料<br>與諮詢方向</div>
+    </div>
+    <div class="booking-step">
+      <div class="booking-step-num">3</div>
+      <div class="booking-step-label">加入 LINE<br>完成確認與付款</div>
+    </div>
   </div>
 
   <form class="booking-form" id="bookingForm" onsubmit="handleSubmit(event)">
@@ -1019,6 +1527,17 @@ footer {
       </svg>
       加入 LINE 完成預約
     </a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-eyebrow">準 備 好 了 嗎</div>
+  <h2 class="final-cta-title">開始探索更好的自己</h2>
+  <p class="final-cta-sub">預約專屬諮詢，開啟你的命理新篇章<br>八字、紫微斗數、塔羅均提供免費體驗版</p>
+  <div class="final-cta-btns">
+    <a href="#booking" class="btn-primary">立即預約諮詢</a>
+    <a href="https://line.me/R/ti/p/@enlite731" target="_blank" class="btn-secondary">加入 LINE 諮詢</a>
   </div>
 </section>
 
