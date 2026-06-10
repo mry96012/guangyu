@@ -375,8 +375,9 @@
     font-size: 12px;
     font-weight: 300;
     color: var(--text-muted);
-    letter-spacing: 0.1em;
-    line-height: 2.0;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    white-space: nowrap;
   }
 
   /* ── BRAND STATEMENT ── */
@@ -393,11 +394,12 @@
     font-weight: 300;
     color: var(--text-main);
     line-height: 2.2;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     margin-bottom: 32px;
     opacity: 0.9;
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-character;
+    padding: 0 4%;
   }
 
   .statement-source {
@@ -634,6 +636,7 @@
     .strip-item--tr,
     .strip-item--bl { border-bottom: 1px solid rgba(200,168,75,0.15) !important; }
     .strip-item--br { border-bottom: none !important; }
+    .strip-desc { white-space: normal; font-size: 11px; }
 
     .form-row { grid-template-columns: 1fr; }
 
@@ -714,7 +717,7 @@
         </svg>
       </div>
       <div class="strip-name">東方命理</div>
-      <div class="strip-desc">八字 · 紫微斗數<br>姓名學 · 流年大運</div>
+      <div class="strip-desc">八字 · 紫微斗數 · 姓名學 · 流年大運</div>
     </div>
     <div class="strip-item strip-item--tr">
       <div class="strip-icon">
@@ -730,7 +733,7 @@
         </svg>
       </div>
       <div class="strip-name">西方命理</div>
-      <div class="strip-desc">塔羅占卜 · 生命靈數<br>西洋占星</div>
+      <div class="strip-desc">塔羅占卜 · 生命靈數 · 西洋占星</div>
     </div>
     <div class="strip-item strip-item--bl">
       <div class="strip-icon">
@@ -744,7 +747,7 @@
         </svg>
       </div>
       <div class="strip-name">主題分析</div>
-      <div class="strip-desc">感情 · 事業 · 財運<br>人際 · 家庭 · 健康</div>
+      <div class="strip-desc">感情 · 事業 · 財運 · 人際 · 家庭 · 健康</div>
     </div>
     <div class="strip-item strip-item--br">
       <div class="strip-icon">
@@ -761,7 +764,7 @@
         </svg>
       </div>
       <div class="strip-name">整合深度服務</div>
-      <div class="strip-desc">東西方交叉分析<br>雙主題長版報告</div>
+      <div class="strip-desc">東西方交叉分析 · 雙主題長版報告</div>
     </div>
   </div>
 </section>
