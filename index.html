@@ -204,7 +204,7 @@ nav.scrolled {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 120px 6% 0;
+  padding: 150px 6% 0;
   max-width: 600px;
 }
 
@@ -824,59 +824,66 @@ footer {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 0;
   max-width: 1100px;
   margin: 0 auto;
+  border: 1px solid rgba(200,168,75,0.2);
 }
 
 .svc-card {
-  background: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.25) 100%);
-  border: 1px solid rgba(200,168,75,0.16);
-  padding: 40px 24px 36px;
+  padding: 48px 28px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s, background 0.35s;
+  transition: transform 0.35s, box-shadow 0.35s;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(4px);
+  border-right: 1px solid rgba(200,168,75,0.15);
+}
+
+.svc-card:last-child { border-right: none; }
+
+/* 奇數卡：深藍底 */
+.svc-card:nth-child(odd) {
+  background: #0b1220;
+}
+
+/* 偶數卡：奶白底 */
+.svc-card:nth-child(even) {
+  background: #f5f0e8;
+}
+
+.svc-card:nth-child(even) .svc-card-tag { color: #8a7040; opacity: 0.8; }
+.svc-card:nth-child(even) .svc-card-name { color: #1a2035; }
+.svc-card:nth-child(even) .svc-card-tools { color: #5a6070; }
+.svc-card:nth-child(even) .svc-card-fit { color: #3a4050; }
+.svc-card:nth-child(even) .svc-card-price { color: #8a6820; text-shadow: none; }
+.svc-card:nth-child(even) .svc-card-divider {
+  background: linear-gradient(to right, transparent, rgba(138,104,32,0.4), transparent);
+}
+.svc-card:nth-child(even) .strip-icon svg { stroke: #c8a84b; }
+.svc-card:nth-child(even)::before {
+  background: linear-gradient(to right, transparent, rgba(138,104,32,0.35), transparent);
 }
 
 .svc-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(to right, transparent, rgba(200,168,75,0.5), transparent);
   opacity: 0;
   transition: opacity 0.35s;
 }
 
-.svc-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 60%;
-  background: linear-gradient(to top, rgba(200,168,75,0.03) 0%, transparent 100%);
-  pointer-events: none;
-}
-
 .svc-card:hover {
-  border-color: rgba(200,168,75,0.40);
   transform: translateY(-6px);
-  box-shadow: 0 20px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,168,75,0.08);
-  background: linear-gradient(160deg, rgba(200,168,75,0.07) 0%, rgba(0,0,0,0.3) 100%);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  z-index: 2;
 }
 
 .svc-card:hover::before { opacity: 1; }
-
-.svc-card--highlight {
-  border-color: rgba(200,168,75,0.28);
-  background: linear-gradient(160deg, rgba(200,168,75,0.08) 0%, rgba(0,0,0,0.3) 100%);
-}
-
-.svc-card--highlight::before { opacity: 0.7; }
 
 .svc-card-icon {
   width: 44px;
@@ -899,7 +906,7 @@ footer {
   letter-spacing: 0.32em;
   color: var(--gold-dim);
   margin-bottom: 12px;
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .svc-card-name {
@@ -1164,15 +1171,18 @@ footer {
   line-height: 1.7;
 }
 
-/* ── MOBILE NEW SECTIONS ── */
 @media (max-width: 900px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .svc-card { border-right: none; border-bottom: 1px solid rgba(200,168,75,0.15); }
+  .svc-card:last-child { border-bottom: none; }
   .why-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .testimonial-grid { grid-template-columns: 1fr; max-width: 500px; }
 }
 
 @media (max-width: 600px) {
   .card-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .svc-card-tools { white-space: normal; }
+  .svc-card-name { white-space: normal; }
   .why-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
   .booking-steps { flex-direction: column; align-items: center; gap: 28px; }
   .booking-step:not(:last-child)::after { display: none; }
@@ -1256,7 +1266,7 @@ footer {
       <a href="#booking" class="btn-primary">預約諮詢</a>
       <a href="#services" class="btn-secondary">了解服務</a>
     </div>
-    <p class="hero-free-note">✦ 八字、紫微斗數、塔羅均提供免費體驗版</p>
+    <p class="hero-free-note" style="display:none"></p>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
@@ -1501,11 +1511,11 @@ footer {
 
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label" for="birthdate">出生日期（YYYY/MM/DD）</label>
+        <label class="form-label" for="birthdate">出生日期（國曆）</label>
         <input class="form-input" type="date" id="birthdate" name="birthdate" required>
       </div>
       <div class="form-group">
-        <label class="form-label" for="birthtime">出生時間（HH:mm）</label>
+        <label class="form-label" for="birthtime">出生時間（若知曉）</label>
         <input class="form-input" type="time" id="birthtime" name="birthtime">
       </div>
     </div>
@@ -1529,13 +1539,13 @@ footer {
     </div>
 
     <div class="form-group">
-      <label class="form-label" for="note">想讓我先了解的事 / 近期發生的事（選填）</label>
+      <label class="form-label" for="note">想讓我先了解的事（選填）</label>
       <textarea class="form-textarea" id="note" name="note" placeholder="例如：目前在考慮換工作，或最近感情狀態讓我很困惑…"></textarea>
     </div>
 
     <div class="form-note">
-      提交後畫面會引導您加入 LINE 官方帳號完成預約確認。<br>
-      報告交付時間約 3–7 個工作天，依服務項目而定。
+      提交後畫面會引導你加入 LINE 官方帳號完成預約確認。<br>
+      報告交付時間約 1–3 個工作天，依服務項目而定。
     </div>
 
     <button type="submit" class="form-submit">送出預約資料</button>
@@ -1543,11 +1553,11 @@ footer {
 
   <div class="form-success" id="formSuccess">
     <div class="form-success-icon">◈</div>
-    <div class="form-success-title">系統已收到您的預約資料</div>
+    <div class="form-success-title">已收到你的預約資料</div>
     <p class="form-success-text">
-      感謝您的信任。<br>
+      感謝你的信任。<br>
       請點擊下方按鈕加入 LINE 官方帳號，<br>
-      完成最後確認與後續安排。
+      完成最後確認與付款安排。
     </p>
     <a href="https://line.me/R/ti/p/@enlite731" target="_blank" class="btn-line">
       <svg width="20" height="20" viewBox="0 0 48 48" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
